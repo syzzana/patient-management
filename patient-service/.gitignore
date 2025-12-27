@@ -35,4 +35,4 @@ build/
 ### IntelliJ files ###
 .idea/
 patient-management.iml
-.mvn
+.mvn/

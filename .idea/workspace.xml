@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22e44b45-7eec-49dd-9868-018b29b60a02" name="Changes" comment="11 error handling - create custom exceptions">
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/exception/EmailAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-requests/patient-service/update-patient.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/dto/validators/CreatePatientValidationGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/exception/PatientNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/dto/PatientRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/dto/PatientRequestDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/repository/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/repository/PatientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/mapper/PatientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/mapper/PatientMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/service/PatientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="HTTP Request" />
         <option value="Class" />
+        <option value="HTTP Request" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -53,31 +60,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.patient-service [clean].executor": "Run",
-    "Maven.patient-service [install].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.PatientServiceApplication (1).executor": "Run",
-    "Spring Boot.PatientServiceApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/syzana/Documents/patient-management/api-requests/patient-service/get-patients.http",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propCompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.patient-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.patient-service [install].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PatientServiceApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PatientServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/syzana/Documents/patient-management/api-requests/patient-service/get-patients.http&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "h2"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;h2&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Spring Boot.PatientServiceApplication (1)">
     <configuration name="GetPatients" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" path="$PROJECT_DIR$/api-requests/patient-service/get-patients.http" executionIdentifier="GET request to get all patients">
       <method v="2" />
@@ -174,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766875205938</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="11 error handling - create custom exceptions">
+      <option name="closed" value="true" />
+      <created>1766876726433</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1766876726433</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,5 +221,16 @@
     <MESSAGE value="add files in git ignore" />
     <MESSAGE value="11 error handling - create custom exceptions" />
     <option name="LAST_COMMIT_MESSAGE" value="11 error handling - create custom exceptions" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/mapper/PatientMapper.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

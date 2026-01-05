@@ -1,5 +1,5 @@
 services:
-  postgres:
+  patient-service-db:
     image: postgres:latest
     container_name: patient-service-db
     environment:
@@ -7,7 +7,21 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: db
     ports:
-      - "5000:5432"
+      - "127.0.0.1:5000:5432"
     volumes:
-      - /home/syzana/Documents/docker-binded-mounts/db_volumes/patient-service-db/
-      - /var/lib/postgresql/data\
+      - /home/syzana/Documents/docker-binded-mounts/db_volumes/patient-service-db
+      - /var/lib/postgresql
+  patient-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: patient-service:latest
+    container_name: patient-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://patient-service-db:5432/db
+      SPRING_DATASOURCE_USERNAME: admin_user
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_SQL_INIT_MODE: always
+    ports:
+      - "127.0.0.1:4000:4000"

@@ -1,0 +1,16 @@
+services:
+  billing-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: billing-service:latest
+    container_name: billing-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://patient-service-db:5432/db
+      SPRING_DATASOURCE_USERNAME: admin_user
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_SQL_INIT_MODE: always
+    ports:
+      - "127.0.0.1:4001:4001"
+      - "127.0.0.1:9001:9001"

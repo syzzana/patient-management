@@ -12,5 +12,12 @@ services:
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_SQL_INIT_MODE: always
     ports:
-      - "127.0.0.1:4001:4001"
-      - "127.0.0.1:9001:9001"
+      - "4001:4001"
+      - "9001:9001"
+    networks:
+      - internal
+
+networks:
+  internal:
+    external: true
+    name: internal

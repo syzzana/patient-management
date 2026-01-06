@@ -7,10 +7,12 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: db
     ports:
-      - "127.0.0.1:5000:5432"
+      - "5000:5432"
     volumes:
       - /home/syzana/Documents/docker-binded-mounts/db_volumes/patient-service-db
       - /var/lib/postgresql
+    networks:
+      - internal
   patient-service:
     build:
       context: .
@@ -26,4 +28,11 @@ services:
       BILLING_SERVICE_ADDRESS: billing-service
       BILLING_SERVICE_GRPC_PORT: 9001
     ports:
-      - "127.0.0.1:4000:4000"
+      - "4000:4000"
+    networks:
+      - internal
+
+networks:
+  internal:
+    external: true
+    name: internal

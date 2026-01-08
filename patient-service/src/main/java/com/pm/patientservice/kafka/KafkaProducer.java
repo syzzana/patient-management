@@ -6,11 +6,10 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import patient.events.PatientEvent;
 
-
-
 @Service
 public class KafkaProducer {
     private final KafkaTemplate<String, byte[]> kafkaTemplate;
+    private static final Logger log = LoggerFactory.getLogger(KafkaProducer.class);
 
     public KafkaProducer(KafkaTemplate<String, byte[]> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
@@ -22,9 +21,11 @@ public class KafkaProducer {
                 .setName(patient.getName())
                 .setEmail(patient.getEmail())
                 .setEventType("PATIENT_CREATED").build();
-
+        log.info("am i inside the sendEvent or?");
         try{
+            log.info("YESSSS?");
           kafkaTemplate.send("patient", event.toByteArray());
+            log.info("EVENT SENT?");
         } catch(Exception e) {
             log.error("Error sending PatientCreated event: {}", event);
         }

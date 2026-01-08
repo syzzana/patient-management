@@ -9,8 +9,7 @@ services:
     ports:
       - "5000:5432"
     volumes:
-      - /home/syzana/Documents/docker-binded-mounts/db_volumes/patient-service-db
-      - /var/lib/postgresql
+      - ./postgres-data:/var/lib/postgresql
     networks:
       - internal
   patient-service:

@@ -29,6 +29,11 @@ services:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     ports:
       - "4000:4000"
+    depends_on:
+      kafka:
+        condition: service_started
+      patient-service-db:
+        condition: service_started
     networks:
       - internal
   kafka:

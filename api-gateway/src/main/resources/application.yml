@@ -2,8 +2,21 @@ server:
   port: 4004
 
 spring:
+  reactor:
+    netty:
+      http:
+        server:
+          accessLogEnabled=true:
+  jmx:
+    enabled: false
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      metrics:
+        enabled: true
       routes:
       ## REST(OR FRONTEND) CLIENT -> http://localhost:4004/api/patients
       ## API GATEWAY -> http://patient-service:4000/patients
@@ -11,7 +24,7 @@ spring:
       - id: patient-service-route
         uri: http://patient-service:4000
         predicates:
-          - Path=/api/patients/**, /patient-service/swagger-ui/index.html
+          - Path=/api/patients,/api/patients/**
         filters:
          - StripPrefix=1
       ## REST-CLIENT -> http://localhost:4004/api-docs/patients
@@ -19,7 +32,18 @@ spring:
       - id: patient-service-swagger
         uri: http://patient-service:4000
         predicates:
-          - Path=/api-docs/patients
+          - Path=/patient-service/swagger-ui/**
         filters:
-          - RewritePath=/api-docs/patients, /swagger-ui/index.html
+          - StripPrefix=1
 
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    org.springframework.boot.autoconfigure.web: DEBUG
+    reactor.ipc.netty: DEBUG
+    reactor.netty: DEBUG
+
+
+management.endpoints.web.exposure.include: '*'

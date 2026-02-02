@@ -9,8 +9,9 @@ services:
       - "4004:4004"
     networks:
       - internal
+    volumes:
+      - ./application.yml:/app/application.yml # Host file -> container
 
 networks:
   internal:
-    external: true
-    name: internal
+    driver: bridge

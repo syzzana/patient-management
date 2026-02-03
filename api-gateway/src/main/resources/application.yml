@@ -32,9 +32,9 @@ spring:
       - id: patient-service-swagger
         uri: http://patient-service:4000
         predicates:
-          - Path=/patient-service/swagger-ui/**
+          - Path=/patient-service/swagger-ui.html,/patient-service/swagger-ui/**,/patient-service/v3/api-docs,/patient-service/swagger-ui-static/**,/patient-service/webjars/**
         filters:
-          - StripPrefix=1
+          - StripPrefix=2
 
 logging:
   level:

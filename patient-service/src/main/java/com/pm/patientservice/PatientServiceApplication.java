@@ -1,6 +1,6 @@
 package com.pm.patientservice;
 
-import com.pm.patientservice.service.PatientService;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

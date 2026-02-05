@@ -21,20 +21,20 @@ spring:
       ## REST(OR FRONTEND) CLIENT -> http://localhost:4004/api/patients
       ## API GATEWAY -> http://patient-service:4000/patients
       ## PATIENT SERVICE (SPRING BOOT APP) -> /patients -> Patients Array
+      - id: hello-service
+        uri: http://localhost:4004
+        predicates:
+          - Path=/hello/**
       - id: patient-service-route
         uri: http://patient-service:4000
         predicates:
           - Path=/api/patients,/api/patients/**
         filters:
          - StripPrefix=1
-      ## REST-CLIENT -> http://localhost:4004/api-docs/patients
-      ## API-GATEWAY -> http://patient-service/4000/v3/api-docs
-      - id: patient-service-swagger
-        uri: http://patient-service:4000
-        predicates:
-          - Path=/patient-service/swagger-ui.html,/patient-service/swagger-ui/**,/patient-service/v3/api-docs,/patient-service/swagger-ui-static/**,/patient-service/webjars/**
-        filters:
-          - StripPrefix=2
+
+swagger-ui:
+  enabled: true
+  path: http://patient-service:4000/swagger-ui/index.html
 
 logging:
   level:

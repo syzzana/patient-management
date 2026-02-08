@@ -21,6 +21,12 @@ spring:
               - Path=/api-docs/patients
               filters:
               - RewritePath=/api-docs/patients,/v3/api-docs
+            - id: api-swagger-patient-route
+              uri: http://patient-service:4000
+              predicates:
+              - Path=/swagger-patients
+              filters:
+              - RewritePath=/swagger-patients,/swagger-ui/index.html
 
 logging:
   level:

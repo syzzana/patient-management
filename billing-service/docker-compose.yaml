@@ -20,4 +20,3 @@ services:
 networks:
   internal:
     external: true
-    name: internal

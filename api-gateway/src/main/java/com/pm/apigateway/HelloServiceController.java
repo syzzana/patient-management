@@ -8,7 +8,7 @@ public class HelloServiceController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "hello world";
+        return "hello 08 feb 20:59";
     }
 }
 

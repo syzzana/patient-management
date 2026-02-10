@@ -15,7 +15,11 @@ import java.util.Optional;
 @RestController
 public class AuthController {
 
-    private  final AuthService authService;
+    private final AuthService authService;
+
+    public  AuthController(AuthService authService) {
+        this.authService = authService;
+    }
 
     @Operation(summary = "Generate token on user login")
     @PostMapping("/login")

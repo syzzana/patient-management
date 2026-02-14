@@ -27,6 +27,8 @@ services:
       BILLING_SERVICE_ADDRESS: billing-service
       BILLING_SERVICE_GRPC_PORT: 9001
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    volumes:
+      - ./target/patient-service-0.0.1-SNAPSHOT.jar:/app/app.jar:ro
     depends_on:
       kafka:
         condition: service_started

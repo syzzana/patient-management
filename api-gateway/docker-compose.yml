@@ -11,6 +11,7 @@ services:
       - internal
     volumes:
       - ./application.yml:/app/application.yml # Host file -> container
+      - ./target/api-gateway-0.0.1-SNAPSHOT.jar:/app/app.jar:ro
 
 networks:
   internal:
